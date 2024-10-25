@@ -1,19 +1,9 @@
-tasks = [
-    {'title': 'Learn HTML, CSS and Javascript',
-        'completed' : false
-    },
-    {'title': 'Learn the basics of Vue JS', 
-        'completed' : false
-    },  
-    {'title': 'Complete Vue JS Challenge with excellence', 
-        'completed' : false
-    },  
-]
+
 
 const ToDoList = {
     data(){
         return {
-            todolist : window.tasks,
+            todolist :[],
             newtask : '',
         };
     },
@@ -26,7 +16,7 @@ const ToDoList = {
                 });
                 this.newtask = '';
             }else{
-                alert('task ca not be empty');
+                alert('task can not be empty');
             }
 
         },
