@@ -15,6 +15,7 @@ const ToDoList = {
                     'completed' : false
                 });
                 this.newtask = '';
+  
             }else{
                 alert('task can not be empty');
             }
@@ -23,6 +24,12 @@ const ToDoList = {
         clearList: function(){
             this.todolist = [];
         }
+    },
+    created(){
+        this.todolist = localStorage.getItem("todolist") ? JSON.parse(localStorage.getItem("todolist")): this.todolist;
+    },
+    updated(){
+        localStorage.setItem("todolist", JSON.stringify(this.todolist))
     }
 }
 
