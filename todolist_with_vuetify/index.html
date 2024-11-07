@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.0.0-alpha.11/dist/vuetify.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <title>To-Do List</title>
+   
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-main>
+                <section class="todo-list">
+                    <h3>To-Do List</h3>
+                    <v-container>
+                        <v-row>
+                            <!-- Liste des tâches -->
+                            <v-col v-for="(task, index) in todolist" :key="index" cols="12">
+                                <v-card
+                                    @click="toggleTask(task)"
+                                    :class="{ done: task.completed }"
+                                    outlined
+                                >
+                                    <v-card-text>{{ task.title }}</v-card-text>
+                                </v-card>
+                            </v-col>
+
+                            <!-- Bouton pour supprimer toutes les tâches -->
+                            <v-col cols="12" v-if="todolist.length">
+                                <v-btn color="error" @click="clearList">Clear All</v-btn>
+                            </v-col>
+
+                            <!-- Champ pour ajouter une nouvelle tâche -->
+                            <v-col cols="12">
+                                <v-text-field
+                                    label="Add new to-do"
+                                    v-model="newtask"
+                                    @keyup.enter="addTask"
+                                    outlined
+                                ></v-text-field>
+                                <v-btn color="primary" @click="addTask">Add</v-btn>
+                            </v-col>
+
+                            <!-- Instructions -->
+                            <v-col cols="12">
+                                <div class="instructions">
+                                    Instructions:
+                                    <ul>
+                                        <li>Click a to-do to toggle between done/undone</li>
+                                        <li>Use "Clear All" to remove all tasks</li>
+                                        <li>Type a new to-do and press Enter or click "Add"</li>
+                                    </ul>
+                                </div>
+                            </v-col>
+                        </v-row>
+                    </v-container>
+                </section>
+            </v-main>
+        </v-app>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.0.0-alpha.11/dist/vuetify.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

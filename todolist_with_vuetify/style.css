@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.todo-list {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.done .v-card-text {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.instructions {
+    font-size: 12px;
+    color: grey;
+    margin-top: 20px;
+}
+
+.v-btn {
+    margin: 8px 0;
+}
